@@ -119,7 +119,7 @@ h2 {
 }
 
 .question>p {
-    animation: colorOfAnswer 0.5s ease-in-out  forwards;
+    animation: colorOfAnswer 0.5s ease-in-out forwards;
 }
 
 .question-container {
@@ -131,7 +131,15 @@ h2 {
 
 .question img {
     width: 10px;
-    height: 10px;
+    height: 7px;
+}
+
+.rotate-arrow {
+    animation: rotateImage 0.7s ease-in-out forwards;
+}
+
+.back-normal {
+    animation: backNormalArrow 1.5s ease-in-out 1s forwards;
 }
 
 .p-clicked {
@@ -139,12 +147,22 @@ h2 {
     animation: colorOfHeading 0.7s ease-in-out forwards;
 }
 
+.p-not-clicked{
+    animation: colorOfHeadingBack 0.7s ease-in-out 1s forwards ;
+}
+
 @keyframes colorOfHeading {
 
     30%,
     100% {
         color: var(--Very_dark_desaturated_blue);
-        ;
+    }
+}
+
+@keyframes colorOfHeadingBack {
+    30%,
+    100% {
+        color: var(--Dark_grayish_blue);
     }
 }
 
@@ -158,6 +176,22 @@ h2 {
     100% {
         opacity: 1;
         transform: translateY(0%);
+    }
+}
+
+@keyframes rotateImage {
+
+    40%,
+    100% {
+        transform: rotateX(180deg);
+    }
+}
+
+@keyframes backNormalArrow {
+
+    90%,
+    100% {
+        transform: rotateX(0);
     }
 }
 

@@ -6,20 +6,32 @@ let paragraphText = [
     ` Chat and email support is available 24/7. Phone lines are open during normal business hours.`
 ];
 let questions = document.querySelectorAll('.question');
-let conts = document.querySelectorAll('.question-container p')
+let conts = document.querySelectorAll('.question-container p');
+let arrows = document.querySelectorAll('.question-container img');
 
 questions.forEach((ele, index) => {
     ele.addEventListener('click', () => {
-        conts.forEach((element) => {
-            if (element.classList.contains('p-clicked')) {
-                element.classList.remove('p-clicked');
-                document.querySelector('.question>p').remove();
-            }
-        });
-        let newParagraph = document.createElement('p');
-        let textOfparagraph = document.createTextNode(paragraphText[index]);
-        newParagraph.appendChild(textOfparagraph);
-        ele.appendChild(newParagraph);
-        conts[index].classList.add('p-clicked');
+        if (ele.children[0].children[0].classList.contains('p-clicked')) {
+            ele.children[0].children[0].classList.remove('p-clicked');
+            ele.children[0].children[0].classList.add('p-not-clicked');
+            arrows[index].classList.replace('rotate-arrow', 'back-normal');
+            document.querySelector('.question>p').remove();
+        } else {
+            conts.forEach((element, ind) => {
+                if (element.classList.contains('p-clicked')) {
+                    element.classList.remove('p-clicked');
+                    element.classList.add('p-not-clicked');
+                    arrows[ind].classList.replace('rotate-arrow', 'back-normal');
+                    document.querySelector('.question>p').remove();
+                }
+            });
+            let newParagraph = document.createElement('p');
+            let textOfparagraph = document.createTextNode(paragraphText[index]);
+            newParagraph.appendChild(textOfparagraph);
+            ele.appendChild(newParagraph);
+            conts[index].classList.remove('p-not-clicked');
+            conts[index].classList.add('p-clicked');
+            arrows[index].classList.replace('back-normal', 'rotate-arrow');
+        }
     });
 });
