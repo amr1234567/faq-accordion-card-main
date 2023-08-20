@@ -147,8 +147,8 @@ h2 {
     animation: colorOfHeading 0.7s ease-in-out forwards;
 }
 
-.p-not-clicked{
-    animation: colorOfHeadingBack 0.7s ease-in-out 1s forwards ;
+.p-not-clicked {
+    animation: colorOfHeadingBack 0.7s ease-in-out 1s forwards;
 }
 
 @keyframes colorOfHeading {
@@ -160,6 +160,7 @@ h2 {
 }
 
 @keyframes colorOfHeadingBack {
+
     30%,
     100% {
         color: var(--Dark_grayish_blue);
